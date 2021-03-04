@@ -11,5 +11,9 @@ import "../styles/index.scss";
 //import your own components
 import { Home } from "./component/home.js";
 
-//render your react application
-ReactDOM.render(<Home />, document.querySelector("#app"));
+// render your react application
+setInterval(function() {
+	ReactDOM.render(<Home />, document.querySelector("#app"));
+}, 1000);
+
+// ReactDOM.render(<Home />, document.querySelector("#app"));

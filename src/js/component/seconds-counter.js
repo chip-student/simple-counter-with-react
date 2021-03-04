@@ -1,43 +1,18 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 
 import { Cards } from "./cards.js";
 
-export function SecondsCounter(props) {
-	let [num1, setNum1] = useState(0);
-	let [num2, setNum2] = useState(0);
-	let [num3, setNum3] = useState(0);
-	let [num4, setNum4] = useState(0);
-	let [num5, setNum5] = useState(0);
-	let [num6, setNum6] = useState(0);
-	useEffect(() => {
-		setInterval(() => {
-			setNum1(num1++);
-			setNum2(num2++);
-			setNum3(num3++);
-			setNum4(num4++);
-			setNum5(num5++);
-			setNum6(num6++);
-			if (num1 > 9) {
-				num1 = 0;
-			}
-			if (num2 > 9) {
-				num2 = 0;
-			}
-			if (num3 > 9) {
-				num3 = 0;
-			}
-			if (num4 > 9) {
-				num4 = 0;
-			}
-			if (num5 > 9) {
-				num5 = 0;
-			}
-			if (num6 > 9) {
-				num6 = 0;
-			}
-		}, props.seconds);
-	}, []);
+let num1 = 0;
+let num2 = 0;
+let num3 = 0;
+let num4 = 0;
+let num5 = 0;
+let num6 = 0;
+
+export function SecondsCounter() {
+	// setInterval(contador, props.seconds);
+	contador();
 	return (
 		<div className="container">
 			<div className="row p-1 bg-dark">
@@ -56,3 +31,42 @@ export function SecondsCounter(props) {
 SecondsCounter.propTypes = {
 	seconds: PropTypes.number
 };
+
+function contador() {
+	num1++;
+
+	if (num1 == 10) {
+		num1 = 0;
+		num2++;
+	}
+	if (num2 == 10) {
+		num2 = 0;
+		num3++;
+	}
+	if (num3 == 10) {
+		num3 = 0;
+		num4++;
+	}
+	if (num4 == 10) {
+		num4 = 0;
+		num5++;
+	}
+	if (num5 == 10) {
+		num5 = 0;
+		num6++;
+	}
+	console.log(
+		" num6 --> " +
+			num6 +
+			" num5 --> " +
+			num5 +
+			" num4 --> " +
+			num4 +
+			" num3 --> " +
+			num3 +
+			" num2 --> " +
+			num2 +
+			" num1 --> " +
+			num1
+	);
+}
